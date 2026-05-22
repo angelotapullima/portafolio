@@ -1,22 +1,23 @@
 import { Card } from "@/components/ui/card";
-import { Code2, Smartphone, Globe } from "lucide-react";
+import { Code2, Smartphone, Globe, Linkedin, Github } from "lucide-react";
+import { portfolioData } from "@/data/portfolioData";
 
 const About = () => {
   const features = [
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Desarrollo Mobile",
-      description: "Apps nativas y multiplataforma con React Native, Flutter y tecnologías modernas."
+      description: portfolioData.about.features[0] // Mapear a la descripción de portfolioData
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Desarrollo Web",
-      description: "Aplicaciones web escalables con React, Next.js y las últimas tecnologías frontend."
+      description: portfolioData.about.features[1] // Mapear a la descripción de portfolioData
     },
     {
       icon: <Code2 className="w-8 h-8" />,
       title: "Full Stack",
-      description: "Soluciones completas desde el frontend hasta el backend, APIs y bases de datos."
+      description: portfolioData.about.features[2] // Mapear a la descripción de portfolioData
     }
   ];
 
@@ -28,7 +29,7 @@ const About = () => {
             Sobre Mí
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Desarrollador apasionado por crear soluciones tecnológicas innovadoras
+            {portfolioData.title}
           </p>
         </div>
         
@@ -50,14 +51,29 @@ const About = () => {
         
         <div className="max-w-3xl mx-auto backdrop-blur-sm bg-card/30 border border-primary/20 rounded-xl p-8">
           <p className="text-lg text-foreground/90 leading-relaxed mb-4">
-            Ingeniero de Sistemas e Informática con más de 5 años de experiencia en desarrollo de software full-stack. 
-            Especializado en JavaScript, TypeScript, Vue.js, Node.js y desarrollo móvil con Flutter/Dart.
+            {portfolioData.bio}
           </p>
-          <p className="text-lg text-foreground/90 leading-relaxed">
-            Experiencia comprobada liderando equipos técnicos y diseñando arquitecturas escalables en entornos 
-            financieros de alta exigencia. Enfocado en crear soluciones innovadoras que resuelven problemas 
-            complejos de negocio.
+          <p className="text-lg text-foreground/90 leading-relaxed mb-8">
+            {portfolioData.about.description}
           </p>
+          <div className="flex justify-center space-x-6">
+            <a 
+              href={portfolioData.contact.social.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-accent transition-colors"
+            >
+              <Linkedin className="w-8 h-8" />
+            </a>
+            <a 
+              href={portfolioData.contact.social.github} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-accent transition-colors"
+            >
+              <Github className="w-8 h-8" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

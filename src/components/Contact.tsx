@@ -1,26 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Github } from "lucide-react";
+import { portfolioData } from "@/data/portfolioData";
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "angelo.anked@gmail.com",
-      link: "mailto:angelo.anked@gmail.com"
+      value: portfolioData.contact.email,
+      link: `mailto:${portfolioData.contact.email}`
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Teléfono",
-      value: "+51 978 400 573",
-      link: "tel:+51978400573"
+      value: portfolioData.contact.phone,
+      link: `tel:${portfolioData.contact.phone.replace(/\s/g, '')}`
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Ubicación",
-      value: "Lima, Perú",
+      value: portfolioData.contact.location,
       link: null
+    },
+    {
+      icon: <Linkedin className="w-6 h-6" />,
+      title: "LinkedIn",
+      value: "Perfil de LinkedIn",
+      link: portfolioData.contact.social.linkedin
+    },
+    {
+      icon: <Github className="w-6 h-6" />,
+      title: "GitHub",
+      value: "Perfil de GitHub",
+      link: portfolioData.contact.social.github
     }
   ];
 
@@ -50,6 +63,8 @@ const Contact = () => {
               {info.link ? (
                 <a 
                   href={info.link}
+                  target={info.title === "LinkedIn" || info.title === "GitHub" ? "_blank" : "_self"}
+                  rel={info.title === "LinkedIn" || info.title === "GitHub" ? "noopener noreferrer" : ""}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   {info.value}
@@ -68,7 +83,7 @@ const Contact = () => {
           <Button 
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] transition-all"
-            onClick={() => window.location.href = 'mailto:angelo.anked@gmail.com'}
+            onClick={() => window.location.href = `mailto:${portfolioData.contact.email}`}
           >
             Enviar Mensaje
           </Button>
