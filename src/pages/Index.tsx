@@ -14,11 +14,15 @@ const Index = () => {
       <TechStack />
       <Projects />
       <Contact />
-      
-      <footer className="py-8 text-center border-t border-border">
-        <p className="text-muted-foreground">
-          © {new Date().getFullYear()} Angelo Tapullima. Todos los derechos reservados.
-        </p>
+
+      <footer className="py-6 px-6 border-t border-border">
+        <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="text-primary">$</span>
+            <span>exit 0</span>
+          </div>
+          <span>© {new Date().getFullYear()} Angelo Tapullima. Todos los derechos reservados.</span>
+        </div>
       </footer>
     </div>
   );

@@ -1,43 +1,35 @@
-import { Badge } from "@/components/ui/badge";
-
 const TechStack = () => {
-  const technologies = {
-    "Mobile": ["Flutter", "Dart", "Kotlin", "Riverpod"],
-    "Frontend": ["Vue.js", "JavaScript", "TypeScript", "Micro Frontends"],
-    "Backend": ["Node.js", "Firebase", "Clean Architecture"],
-    "Cloud & Tools": ["Azure", "Azure B2C", "Git", "CI/CD", "Segment"]
+  const modules = {
+    "mobile": ["Flutter", "Dart", "Kotlin", "Riverpod"],
+    "frontend": ["Vue.js", "JavaScript", "TypeScript", "Micro Frontends"],
+    "backend": ["Node.js", "Firebase", "Clean Architecture"],
+    "cloud_tools": ["Azure", "Azure B2C", "Git", "CI/CD", "Segment"]
   };
 
   return (
-    <section id="tech-stack" className="py-24 px-6 bg-card/20">
-      <div className="container mx-auto">
-        <div className="text-center mb-16 motion-safe:animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Tecnologías
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tecnologías y herramientas que domino
-          </p>
+    <section id="tech-stack" className="py-24 px-6 border-b border-border">
+      <div className="container mx-auto max-w-5xl">
+        <div className="flex items-center gap-3 mb-10">
+          <span className="font-mono text-primary text-sm">$</span>
+          <h2 className="font-mono text-3xl sm:text-4xl font-bold text-foreground">ls stack/</h2>
+          <span className="flex-1 h-px bg-border" />
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {Object.entries(technologies).map(([category, techs], categoryIndex) => (
-            <div
-              key={category}
-              className="motion-safe:animate-fade-in"
-              style={{ animationDelay: `${categoryIndex * 100}ms` }}
-            >
-              <h3 className="text-xl font-bold mb-4 text-primary">{category}</h3>
-              <div className="flex flex-wrap gap-3">
-                {techs.map((tech, techIndex) => (
-                  <Badge
+        <div className="grid sm:grid-cols-2 gap-6">
+          {Object.entries(modules).map(([category, techs]) => (
+            <div key={category} className="bg-card border border-border p-5">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-border">
+                <span className="font-mono text-sm text-accent font-medium">{category}.json</span>
+                <span className="font-mono text-xs text-muted-foreground">{techs.length} items</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {techs.map((tech) => (
+                  <span
                     key={tech}
-                    variant="secondary"
-                    className="px-4 py-2 text-base bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-colors cursor-default motion-safe:animate-scale-in"
-                    style={{ animationDelay: `${(categoryIndex * 100) + (techIndex * 50)}ms` }}
+                    className="inline-flex items-center px-3 py-1.5 border border-border bg-secondary text-foreground font-mono text-xs hover:border-primary hover:text-primary transition-colors"
                   >
                     {tech}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             </div>

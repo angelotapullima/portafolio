@@ -1,79 +1,83 @@
-import { Card } from "@/components/ui/card";
-import { Code2, Smartphone, Globe, Linkedin, Github } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
+import { Smartphone, Globe, Code2, Linkedin, Github } from "lucide-react";
 
 const About = () => {
   const features = [
     {
-      icon: <Smartphone className="w-8 h-8" aria-hidden="true" />,
-      title: "Desarrollo Mobile",
+      icon: <Smartphone className="w-5 h-5" aria-hidden="true" />,
+      title: "mobile_runtime",
       description: portfolioData.about.features[0]
     },
     {
-      icon: <Globe className="w-8 h-8" aria-hidden="true" />,
-      title: "Desarrollo Web",
+      icon: <Globe className="w-5 h-5" aria-hidden="true" />,
+      title: "web_frontend",
       description: portfolioData.about.features[1]
     },
     {
-      icon: <Code2 className="w-8 h-8" aria-hidden="true" />,
-      title: "Arquitectura & Integraciones",
+      icon: <Code2 className="w-5 h-5" aria-hidden="true" />,
+      title: "backend_arch",
       description: portfolioData.about.features[2]
     }
   ];
 
   return (
-    <section id="sobre-mi" className="py-24 px-6 relative">
-      <div className="container mx-auto">
-        <div className="text-center mb-16 motion-safe:animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Sobre Mí
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {portfolioData.title}
-          </p>
+    <section id="sobre-mi" className="py-24 px-6 border-b border-border">
+      <div className="container mx-auto max-w-5xl">
+        <div className="flex items-center gap-3 mb-10">
+          <span className="font-mono text-primary text-sm">$</span>
+          <h2 className="font-mono text-3xl sm:text-4xl font-bold text-foreground">cat about.md</h2>
+          <span className="flex-1 h-px bg-border" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-4 mb-12">
           {features.map((feature, index) => (
-            <Card
+            <div
               key={index}
-              className="p-6 bg-card/50 border-border hover:border-primary/50 transition-colors group motion-safe:animate-scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="p-5 bg-card border border-border hover:border-primary/50 transition-colors group"
             >
-              <div className="text-primary mb-4 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-3 mb-3 text-primary">
                 {feature.icon}
+                <span className="font-mono text-sm font-medium">{feature.title}</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </Card>
+              <p className="text-sm text-muted-foreground leading-relaxed font-sans">
+                {feature.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto bg-card/30 border border-border rounded-xl p-8">
-          <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+        <div className="bg-card border border-border p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-4 font-mono text-xs text-muted-foreground">
+            <span className="text-warning">●</span>
+            <span>profile.md</span>
+            <span className="ml-auto">{portfolioData.contact.location}</span>
+          </div>
+          <p className="text-lg text-foreground/90 leading-relaxed mb-4 font-sans">
             {portfolioData.bio}
           </p>
-          <p className="text-lg text-foreground/90 leading-relaxed mb-8">
+          <p className="text-base text-muted-foreground leading-relaxed mb-6 font-sans">
             {portfolioData.about.description}
           </p>
-          <div className="flex justify-center space-x-6">
+          <div className="flex items-center gap-5">
             <a
               href={portfolioData.contact.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitar el perfil de LinkedIn de Angelo Tapullima"
-              className="text-primary hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-mono text-sm"
             >
-              <Linkedin className="w-8 h-8" aria-hidden="true" />
+              <Linkedin className="w-4 h-4" aria-hidden="true" />
+              <span>linkedin --connect</span>
             </a>
             <a
               href={portfolioData.contact.social.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitar el perfil de GitHub de Angelo Tapullima"
-              className="text-primary hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-mono text-sm"
             >
-              <Github className="w-8 h-8" aria-hidden="true" />
+              <Github className="w-4 h-4" aria-hidden="true" />
+              <span>github --repos</span>
             </a>
           </div>
         </div>

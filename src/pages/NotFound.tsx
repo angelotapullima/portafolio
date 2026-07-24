@@ -1,23 +1,22 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-6">
-      <div className="text-center max-w-md">
-        <h1 className="mb-4 text-6xl font-bold text-foreground">404</h1>
-        <p className="mb-6 text-xl text-muted-foreground">Parece que esta página no existe.</p>
+    <div className="min-h-screen flex items-center justify-center px-6 bg-background">
+      <div className="max-w-lg w-full border border-border bg-card p-8">
+        <div className="font-mono text-xs text-muted-foreground mb-4 pb-3 border-b border-border">
+          <span className="text-error">error</span>
+          <span className="mx-2">|</span>
+          <span>404</span>
+        </div>
+        <h1 className="font-mono text-4xl font-bold text-foreground mb-3">command not found</h1>
+        <p className="text-muted-foreground mb-8 font-sans">
+          La ruta que intentaste no existe en este sistema.
+        </p>
         <a
           href="/"
-          className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground font-mono text-sm font-medium hover:bg-primary/90 transition-colors"
         >
-          Volver al inicio
+          <span>$</span>
+          <span>cd /home</span>
         </a>
       </div>
     </div>
