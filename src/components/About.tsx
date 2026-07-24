@@ -5,39 +5,39 @@ import { portfolioData } from "@/data/portfolioData";
 const About = () => {
   const features = [
     {
-      icon: <Smartphone className="w-8 h-8" />,
+      icon: <Smartphone className="w-8 h-8" aria-hidden="true" />,
       title: "Desarrollo Mobile",
-      description: portfolioData.about.features[0] // Mapear a la descripción de portfolioData
+      description: portfolioData.about.features[0]
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="w-8 h-8" aria-hidden="true" />,
       title: "Desarrollo Web",
-      description: portfolioData.about.features[1] // Mapear a la descripción de portfolioData
+      description: portfolioData.about.features[1]
     },
     {
-      icon: <Code2 className="w-8 h-8" />,
-      title: "Full Stack",
-      description: portfolioData.about.features[2] // Mapear a la descripción de portfolioData
+      icon: <Code2 className="w-8 h-8" aria-hidden="true" />,
+      title: "Arquitectura & Integraciones",
+      description: portfolioData.about.features[2]
     }
   ];
 
   return (
     <section id="sobre-mi" className="py-24 px-6 relative">
       <div className="container mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <div className="text-center mb-16 motion-safe:animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Sobre Mí
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {portfolioData.title}
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (
-            <Card 
+            <Card
               key={index}
-              className="p-6 backdrop-blur-sm bg-card/50 border-primary/20 hover:border-primary/50 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] group animate-scale-in"
+              className="p-6 bg-card/50 border-border hover:border-primary/50 transition-colors group motion-safe:animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="text-primary mb-4 group-hover:scale-110 transition-transform">
@@ -48,8 +48,8 @@ const About = () => {
             </Card>
           ))}
         </div>
-        
-        <div className="max-w-3xl mx-auto backdrop-blur-sm bg-card/30 border border-primary/20 rounded-xl p-8">
+
+        <div className="max-w-3xl mx-auto bg-card/30 border border-border rounded-xl p-8">
           <p className="text-lg text-foreground/90 leading-relaxed mb-4">
             {portfolioData.bio}
           </p>
@@ -57,21 +57,23 @@ const About = () => {
             {portfolioData.about.description}
           </p>
           <div className="flex justify-center space-x-6">
-            <a 
-              href={portfolioData.contact.social.linkedin} 
-              target="_blank" 
+            <a
+              href={portfolioData.contact.social.linkedin}
+              target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visitar el perfil de LinkedIn de Angelo Tapullima"
               className="text-primary hover:text-accent transition-colors"
             >
-              <Linkedin className="w-8 h-8" />
+              <Linkedin className="w-8 h-8" aria-hidden="true" />
             </a>
-            <a 
-              href={portfolioData.contact.social.github} 
-              target="_blank" 
+            <a
+              href={portfolioData.contact.social.github}
+              target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visitar el perfil de GitHub de Angelo Tapullima"
               className="text-primary hover:text-accent transition-colors"
             >
-              <Github className="w-8 h-8" />
+              <Github className="w-8 h-8" aria-hidden="true" />
             </a>
           </div>
         </div>

@@ -15,9 +15,9 @@ const Index = () => {
       <Projects />
       <Contact />
       
-      <footer className="py-8 text-center border-t border-primary/20">
+      <footer className="py-8 text-center border-t border-border">
         <p className="text-muted-foreground">
-          © 2024 Angelo Tapullima. Desarrollado con ❤️ usando React y Tailwind CSS
+          © {new Date().getFullYear()} Angelo Tapullima. Todos los derechos reservados.
         </p>
       </footer>
     </div>
